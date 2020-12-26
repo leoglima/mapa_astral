@@ -7,9 +7,14 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Container,
+  Typography,
 } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
+import HowToRegIcon from '@material-ui/icons/HowToReg';
+import Cadastro from './templates/Cadastro';
+
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
   link: { textDecoration: 'none', color: theme.palette.text.primary },
@@ -44,14 +49,25 @@ function App() {
                 <ListItemText primary={'About'} />
               </ListItem>
             </Link>
+            <Link to="/cadastro" className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <HowToRegIcon />
+                </ListItemIcon>
+                <ListItemText primary={'Cadstro'} />
+              </ListItem>
+            </Link>
           </List>
         </Drawer>
         <Switch>
           <Route exact path="/">
-            Home
+            <Container>Home</Container>
           </Route>
           <Route exact path="/about">
-            About
+            <Container>About</Container>
+          </Route>
+          <Route exact path="/cadastro">
+            <Cadastro />
           </Route>
         </Switch>
       </div>
